@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MetroChrome</id>
+    <version>$version$</version>
+    <title>MetroChrome</title>
+    <authors>Cameron MacFarland</authors>
+    <owners>Cameron MacFarland</owners>
+    <projectUrl>https://github.com/distantcam/MetroChrome</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>[TODO] Description</description>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="..\code\src\MetroChrome\bin\$Configuration$\MetroChrome.dll" target="lib\net40" />
+    <file src="..\code\src\MetroChrome\bin\$Configuration$\MetroChrome.pdb" target="lib\net40" />
+  </files>
+</package>

@@ -1,0 +1,73 @@
+<Project DefaultTargets="NuGet" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+  
+  <Import Project="tools\msbuildtasks\MSBuild.Community.Tasks.Targets"/>
+  <UsingTask AssemblyFile="tools\xunit\xunit.runner.msbuild.dll"
+             TaskName="Xunit.Runner.MSBuild.xunit"/>
+
+  <Target Name="FullClean" DependsOnTargets="Clean">
+    <ItemGroup>
+      <OldFiles Include="code\src\CommonAssemblyInfo.cs" />
+      <OldFiles Include="**\*.suo" />
+      <OldFiles Include="**\*.user" />
+      <OldFiles Include="**\*.cache" />
+      <OldFiles Include="**\*.dat" />
+
+      <ProjectFiles Include="code\**\*.*proj" />
+      <OldDirectories Include="@(ProjectFiles->'%(RootDir)%(Directory)bin')" />
+      <OldDirectories Include="@(ProjectFiles->'%(RootDir)%(Directory)obj')" />
+      <OldDirectories Include="code\packages\" />
+    </ItemGroup>
+
+    <Delete Files="@(OldFiles)" />
+    <RemoveDir Directories="@(OldDirectories)" />
+  </Target>
+
+  <Target Name="Clean">
+    <ItemGroup>
+      <OldArtifacts Include="artifacts\*.nupkg" />
+    </ItemGroup>
+
+    <Delete Files="@(OldArtifacts)" />
+  </Target>
+  
+  <Target Name="Compile" DependsOnTargets="Clean">
+    <ItemGroup>
+      <Projects Include="code\**\*.sln" />
+    </ItemGroup>
+
+    <MSBuild Projects="@(Projects)" Targets="Rebuild" Properties="Configuration=$(Configuration)" />
+  </Target>
+  
+  <Target Name="Test" DependsOnTargets="Compile">
+    <ItemGroup>
+      <TestFiles Include="code\src\**\bin\$(Configuration)\*Tests.dll" />
+    </ItemGroup>
+
+    <xunit Assemblies="@(TestFiles)" />
+  </Target>
+  
+  <Target Name="NuGet" DependsOnTargets="Test">    
+    <GetAssemblyIdentity AssemblyFiles="code\src\MetroChrome\bin\$(Configuration)\MetroChrome.dll">
+    <Output
+        TaskParameter="Assemblies"
+        ItemName="AssemblyInfo" />
+    </GetAssemblyIdentity>
+    
+    <PropertyGroup>
+      <NuGet>code\.nuget\NuGet.exe</NuGet>
+      <OutputDirectory>-OutputDirectory "artifacts"</OutputDirectory>
+      <VersionArg>-Version %(AssemblyInfo.Version)</VersionArg>
+      <ConfigArg>-Prop Configuration=$(Configuration)</ConfigArg>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <NuSpec Include="artifacts\*.nuspec" />
+    </ItemGroup>
+
+    <Exec Command='$(NuGet) pack "@(NuSpec)" $(OutputDirectory) $(VersionArg) $(ConfigArg) -Symbols' />
+  </Target>
+  
+</Project>

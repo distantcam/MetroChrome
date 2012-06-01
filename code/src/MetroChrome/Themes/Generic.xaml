@@ -1,0 +1,9 @@
+<local:MetroDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MetroChrome">
+
+    <Style TargetType="{x:Type local:MetroWindow}" BasedOn="{StaticResource {x:Type Window}}">
+        <Setter Property="Background" Value="{DynamicResource MetroBackground1Brush}" />
+    </Style>
+</local:MetroDictionary>

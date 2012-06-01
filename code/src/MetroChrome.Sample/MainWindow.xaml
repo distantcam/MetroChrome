@@ -1,0 +1,20 @@
+﻿<metro:MetroWindow 
+    x:Class="MetroChrome.Sample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:metro="http://metrochrome.github.com/"
+    Title="MainWindow" 
+    Height="350" 
+    Width="525"
+>
+    <UniformGrid Rows="2">
+        
+        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="Light" IsSelected="True" />
+            <ComboBoxItem Content="Dark" />
+        </ComboBox>
+        
+        <Button Content="THIS IS BUTTON" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+    </UniformGrid>
+</metro:MetroWindow>
