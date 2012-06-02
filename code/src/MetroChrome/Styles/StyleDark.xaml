@@ -10,19 +10,25 @@
     <Color x:Key="MetroBackground3Color" PresentationOptions:Freeze="True">#999999</Color>
 
     <Color x:Key="MetroChromeColor" PresentationOptions:Freeze="True">#000000</Color>
-    <Color x:Key="MetroForegroundColor" PresentationOptions:Freeze="True">#FFFFFF</Color>
 
-    
-    
+    <Color x:Key="MetroForeground1Color" PresentationOptions:Freeze="True">#FFFFFF</Color>
+    <Color x:Key="MetroForeground2Color" PresentationOptions:Freeze="True">#EEEEEE</Color>
+    <Color x:Key="MetroForeground3Color" PresentationOptions:Freeze="True">#DDDDDD</Color>
+
+
+
     <SolidColorBrush x:Key="MetroBackground1Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroBackground1Color}" />
     <SolidColorBrush x:Key="MetroBackground2Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroBackground2Color}" />
     <SolidColorBrush x:Key="MetroBackground3Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroBackground3Color}" />
 
     <SolidColorBrush x:Key="MetroChromeBrush" PresentationOptions:Freeze="True" Color="{StaticResource MetroChromeColor}" />
-    <SolidColorBrush x:Key="MetroForegroundBrush" PresentationOptions:Freeze="True" Color="{StaticResource MetroForegroundColor}" />
 
-    
-    
+    <SolidColorBrush x:Key="MetroForeground1Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroForeground1Color}" />
+    <SolidColorBrush x:Key="MetroForeground2Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroForeground2Color}" />
+    <SolidColorBrush x:Key="MetroForeground3Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroForeground3Color}" />
+
+
+
     <LinearGradientBrush x:Key="MetroBackgroundSpecial1Brush" StartPoint="0.5,0" EndPoint="0.5,1">
         <GradientStop Color="#606060" Offset="0" />
         <GradientStop Color="#5A5A5A" Offset="1" />

@@ -8,12 +8,21 @@
     Width="525"
 >
     <UniformGrid Rows="2">
-        
-        <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged">
-            <ComboBoxItem Content="Light" IsSelected="True" />
-            <ComboBoxItem Content="Dark" />
-        </ComboBox>
-        
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ComboBox SelectionChanged="StyleSelectionChanged">
+                <ComboBoxItem Content="Light" IsSelected="True" />
+                <ComboBoxItem Content="Dark" />
+            </ComboBox>
+
+            <ComboBox SelectionChanged="ResizeModeChanged">
+                <ComboBoxItem Content="NoResize" />
+                <ComboBoxItem Content="CanMinimize" />
+                <ComboBoxItem Content="CanResize" />
+                <ComboBoxItem Content="CanResizeWithGrip" IsSelected="True" />
+            </ComboBox>
+        </StackPanel>
+
         <Button Content="THIS IS BUTTON" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
     </UniformGrid>

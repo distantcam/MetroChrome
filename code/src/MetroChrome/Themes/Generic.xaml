@@ -1,9 +1,118 @@
-<local:MetroDictionary
+﻿<local:MetroDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:MetroChrome">
-
-    <Style TargetType="{x:Type local:MetroWindow}" BasedOn="{StaticResource {x:Type Window}}">
+    xmlns:local="clr-namespace:MetroChrome"
+    xmlns:behaviors="clr-namespace:MetroChrome.Behaviors"
+>
+    <Style x:Key="WindowButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="FontFamily" Value="Marlett" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{DynamicResource MetroForeground3Brush}" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid SnapsToDevicePixels="True">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground)" Storyboard.TargetName="Content">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{DynamicResource MetroForeground1Brush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground)" Storyboard.TargetName="Content">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{DynamicResource MetroBackground3Brush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentPresenter x:Name="Content" TextElement.Foreground="{TemplateBinding Foreground}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+    
+    <Style TargetType="{x:Type local:MetroWindow}">
         <Setter Property="Background" Value="{DynamicResource MetroBackground1Brush}" />
+        <Setter Property="Foreground" Value="{DynamicResource MetroForeground1Brush}" />
+        <Setter Property="behaviors:StylizedBehaviors.Behaviors">
+            <Setter.Value>
+                <behaviors:StylizedBehaviorCollection>
+                    <behaviors:BorderlessWindowBehavior/>
+                </behaviors:StylizedBehaviorCollection>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:MetroWindow}">
+                    <Border 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        Background="{TemplateBinding Background}"
+                    >
+                        <Grid>
+                            <AdornerDecorator>
+                                <ContentPresenter/>
+                            </AdornerDecorator>
+                            <ResizeGrip 
+                                x:Name="WindowResizeGrip" 
+                                HorizontalAlignment="Right" 
+                                IsTabStop="false" 
+                                Visibility="Collapsed" 
+                                VerticalAlignment="Bottom"
+                            />
+                            <Grid
+                                x:Name="WindowButtonArea"
+                                HorizontalAlignment="Right"
+                                Visibility="Visible"
+                                VerticalAlignment="Top"
+                                Margin="0,12,12,0"
+                            >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="PART_Min" Grid.Column="0" Style="{StaticResource WindowButtonStyle}" Content="0" Margin="0,0,4,0"/>
+                                <Button x:Name="PART_Max" Grid.Column="1" Style="{StaticResource WindowButtonStyle}" Content="1" Margin="0,0,4,0" />
+                                <Button x:Name="PART_Clo" Grid.Column="2" Style="{StaticResource WindowButtonStyle}" Content="r" />
+                            </Grid>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ResizeMode" Value="CanResizeWithGrip"/>
+                                <Condition Property="WindowState" Value="Normal"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" TargetName="WindowResizeGrip" Value="Visible"/>
+                        </MultiTrigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter Property="Visibility" TargetName="PART_Min" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="PART_Max" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <Setter Property="IsEnabled" TargetName="PART_Max" Value="False"/>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter Property="Content" TargetName="PART_Max" Value="2"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </local:MetroDictionary>

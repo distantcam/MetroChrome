@@ -17,7 +17,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource MetroChromeBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="Foreground" Value="{StaticResource MetroForegroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource MetroForeground1Brush}"/>
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontWeight" Value="Bold" />
