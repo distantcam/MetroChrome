@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Interop;
 using MetroChrome.Native;
 
@@ -47,6 +48,14 @@ namespace MetroChrome
         {
             var hwnd = ((HwndSource)HwndSource.FromVisual(this)).Handle;
             UnsafeNativeMethods.ShowWindow(hwnd, this.WindowState == WindowState.Normal ? ShowWindowCommands.Maximize : ShowWindowCommands.Normal);
+        }
+
+        protected override void OnMouseDown(MouseButtonEventArgs e)
+        {
+            if (e.RightButton != MouseButtonState.Pressed && e.MiddleButton != MouseButtonState.Pressed && e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+
+            base.OnMouseDown(e);
         }
     }
 }

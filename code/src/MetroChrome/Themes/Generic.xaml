@@ -4,46 +4,6 @@
     xmlns:local="clr-namespace:MetroChrome"
     xmlns:behaviors="clr-namespace:MetroChrome.Behaviors"
 >
-    <Style x:Key="WindowButtonStyle" TargetType="{x:Type Button}">
-        <Setter Property="FontFamily" Value="Marlett" />
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="Foreground" Value="{DynamicResource MetroForeground3Brush}" />
-        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid SnapsToDevicePixels="True">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
-                                <VisualState x:Name="MouseOver">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground)" Storyboard.TargetName="Content">
-                                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{DynamicResource MetroForeground1Brush}" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Pressed">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextElement.Foreground)" Storyboard.TargetName="Content">
-                                            <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{DynamicResource MetroBackground3Brush}" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                            <VisualStateGroup x:Name="FocusStates">
-                                <VisualState x:Name="Focused" />
-                                <VisualState x:Name="Unfocused" />
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                        <ContentPresenter x:Name="Content" TextElement.Foreground="{TemplateBinding Foreground}"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        
-    </Style>
-    
     <Style TargetType="{x:Type local:MetroWindow}">
         <Setter Property="Background" Value="{DynamicResource MetroBackground1Brush}" />
         <Setter Property="Foreground" Value="{DynamicResource MetroForeground1Brush}" />
@@ -85,9 +45,9 @@
                                     <ColumnDefinition Width="auto" />
                                     <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <Button x:Name="PART_Min" Grid.Column="0" Style="{StaticResource WindowButtonStyle}" Content="0" Margin="0,0,4,0"/>
-                                <Button x:Name="PART_Max" Grid.Column="1" Style="{StaticResource WindowButtonStyle}" Content="1" Margin="0,0,4,0" />
-                                <Button x:Name="PART_Clo" Grid.Column="2" Style="{StaticResource WindowButtonStyle}" Content="r" />
+                                <Button x:Name="PART_Min" Grid.Column="0" Style="{DynamicResource WindowButtonStyle}" Content="0" Margin="0,0,4,0"/>
+                                <Button x:Name="PART_Max" Grid.Column="1" Style="{DynamicResource WindowButtonStyle}" Content="1" Margin="0,0,4,0" />
+                                <Button x:Name="PART_Clo" Grid.Column="2" Style="{DynamicResource WindowButtonStyle}" Content="r" />
                             </Grid>
                         </Grid>
                     </Border>
