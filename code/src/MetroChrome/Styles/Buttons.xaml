@@ -4,15 +4,6 @@
     xmlns:local="clr-namespace:MetroChrome"
 >
     <Style TargetType="{x:Type Button}">
-        <Style.Resources>
-            <Style x:Key="MetroTextInnerDropShadow" TargetType="{x:Type ContentPresenter}">
-                <Setter Property="UIElement.Effect">
-                    <Setter.Value>
-                        <DropShadowEffect Color="{StaticResource MetroChromeColor}" Direction="270" BlurRadius="0.5" ShadowDepth="0.8" RenderingBias="Quality" />
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Style.Resources>
         <Setter Property="Background" Value="{StaticResource MetroBackgroundSpecial1Brush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource MetroChromeBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -53,7 +44,7 @@
                         </VisualStateManager.VisualStateGroups>
                         <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                             <ContentPresenter 
-                                Style="{StaticResource MetroTextInnerDropShadow}"
+                                Style="{StaticResource MetroDropShadow}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                 Margin="{TemplateBinding Padding}" 
                                 RecognizesAccessKey="True" 
