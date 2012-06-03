@@ -45,9 +45,9 @@
                                     <ColumnDefinition Width="auto" />
                                     <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <Button x:Name="PART_Min" Grid.Column="0" Style="{DynamicResource WindowButtonStyle}" Content="0" Margin="0,0,4,0"/>
-                                <Button x:Name="PART_Max" Grid.Column="1" Style="{DynamicResource WindowButtonStyle}" Content="1" Margin="0,0,4,0" />
-                                <Button x:Name="PART_Clo" Grid.Column="2" Style="{DynamicResource WindowButtonStyle}" Content="r" />
+                                <Button x:Name="PART_Min" Grid.Column="0" Style="{DynamicResource WindowButtonStyle}" Content="0" Margin="0,0,4,0" ToolTip="minimize"/>
+                                <Button x:Name="PART_Max" Grid.Column="1" Style="{DynamicResource WindowButtonStyle}" Content="1" Margin="0,0,4,0" ToolTip="maximize" />
+                                <Button x:Name="PART_Clo" Grid.Column="2" Style="{DynamicResource WindowButtonStyle}" Content="r" ToolTip="close" />
                             </Grid>
                         </Grid>
                     </Border>

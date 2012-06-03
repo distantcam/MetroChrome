@@ -50,6 +50,7 @@
         <Setter Property="FontFamily" Value="Marlett" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="{StaticResource MetroForeground3Brush}" />
+        <Setter Property="IsTabStop" Value="False" />
         <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
         <Setter Property="Template">
             <Setter.Value>

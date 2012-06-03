@@ -11,6 +11,7 @@ namespace MetroChrome
         Light,
         Dark
     }
+
     public static class ThemeManager
     {
         private static ResourceDictionary GetThemeResourceDictionary(string theme)
@@ -60,6 +61,7 @@ namespace MetroChrome
             mergedDictionaries.Add(CreateAccentDictionary(accentColor));
 
             mergedDictionaries.Add(GetThemeResourceDictionary("Buttons"));
+            mergedDictionaries.Add(GetThemeResourceDictionary("Text"));
         }
     }
 }
