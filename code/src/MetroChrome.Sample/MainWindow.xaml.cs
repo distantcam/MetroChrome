@@ -41,26 +41,5 @@ namespace MetroChrome.Sample
                     break;
             }
         }
-
-        private void WindowStyleChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var cb = (ComboBox)sender;
-
-            switch (cb.SelectedIndex)
-            {
-                case 0:
-                    this.WindowStyle = WindowStyle.None;
-                    break;
-                case 1:
-                    this.WindowStyle = WindowStyle.SingleBorderWindow;
-                    break;
-                case 2:
-                    this.WindowStyle = WindowStyle.ThreeDBorderWindow;
-                    break;
-                case 3:
-                    this.WindowStyle = WindowStyle.ToolWindow;
-                    break;
-            }
-        }
     }
 }
