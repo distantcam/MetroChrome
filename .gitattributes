@@ -1,51 +1,22 @@
-*.doc	diff=astextplain
-*.DOC	diff=astextplain
-*.docx	diff=astextplain
-*.DOCX	diff=astextplain
-*.dot	diff=astextplain
-*.DOT	diff=astextplain
-*.pdf	diff=astextplain
-*.PDF	diff=astextplain
-*.rtf	diff=astextplain
-*.RTF	diff=astextplain
+# Auto detect text files and perform LF normalization
+* -text
 
-*.jpg	binary
-*.png	binary
-*.gif	binary
-*.dll	binary
+# Custom for Visual Studio
+*.cs     diff=csharp
+*.sln    eol=crlf merge=union
+*.csproj merge=union
+*.vbproj merge=union
+*.fsproj merge=union
+*.dbproj merge=union
 
-*.cs	-text diff=csharp 
-*.vb	-text
-*.c		-text
-*.cpp	-text diff=cpp
-*.cxx	-text
-*.h		-text
-*.hxx	-text
-*.py	-text diff=python
-*.rb	-text diff=ruby
-*.java	-text diff=java
-*.html	-text diff=html
-*.htm	-text
-*.css	-text
-*.scss	-text
-*.sass	-text
-*.less	-text
-*.js	-text
-*.lisp	-text
-*.clj	-text
-*.sql	-text
-*.php	-text diff=php
-*.lua	-text
-*.m		-text
-*.asm	-text
-*.erl	-text
-*.fs	-text
-*.fsx	-text
-*.hs	-text
-*.xaml	-text
-
-*.csproj	-text merge=union 
-*.vbproj	-text merge=union 
-*.fsproj	-text merge=union 
-*.dbproj	-text merge=union 
-*.sln		-text eol=crlf merge=union 
+# Standard to msysgit
+*.doc	 diff=astextplain
+*.DOC	 diff=astextplain
+*.docx  diff=astextplain
+*.DOCX  diff=astextplain
+*.dot   diff=astextplain
+*.DOT   diff=astextplain
+*.pdf   diff=astextplain
+*.PDF	 diff=astextplain
+*.rtf	 diff=astextplain
+*.RTF	 diff=astextplain
