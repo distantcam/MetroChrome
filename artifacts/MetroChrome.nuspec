@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/distantcam/MetroChrome</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>MetroChrome is a simple theme for WPF.</description>
-    <tags>WPF,XAML,theme</tags>
+    <tags>WPF XAML theme</tags>
   </metadata>
   <files>
     <file src="..\code\src\MetroChrome\bin\$Configuration$\MetroChrome.dll" target="lib\net40" />
