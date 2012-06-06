@@ -9,8 +9,10 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">$(MSBuildProjectDirectory)..\code\</SolutionDir>
     <MSBuildCommunityTasksPath>$(SolutionDir)..\tools\msbuildtasks\</MSBuildCommunityTasksPath>
 
-    <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
-    <AssemblyConfig>dev</AssemblyConfig>
+    <BuildNumber></BuildNumber>
+    <SafeBuildNumber>$(BuildNumber)</SafeBuildNumber>
+    <SafeBuildNumber Condition=" '$(SafeBuildNumber)' == '' ">0</SafeBuildNumber>
+    <AssemblyConfig>alpha</AssemblyConfig>
     
     <BuildDependsOn>
       GenerateCommonAssemblyInfo;
@@ -32,8 +34,8 @@
       AssemblyTrademark="" 
       AssemblyConfiguration="$(AssemblyConfig)" 
       AssemblyVersion="$(CurrentVersion)"
-      AssemblyFileVersion="$(CurrentVersion).$(BuildNumber)"
-      AssemblyInformationalVersion="$(CurrentVersion)-$(AssemblyConfig).$(BuildNumber)"
+      AssemblyFileVersion="$(CurrentVersion).$(SafeBuildNumber)"
+      AssemblyInformationalVersion="$(CurrentVersion)-$(AssemblyConfig)$(BuildNumber)"
     />
   </Target>
 

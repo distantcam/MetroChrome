@@ -1,6 +1,9 @@
 <Project DefaultTargets="NuGet" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration>Debug</Configuration>
+    <CurrentVersion>0.0.1</CurrentVersion>
+    <BuildNumber></BuildNumber>
+    <AssemblyConfig>alpha</AssemblyConfig>
   </PropertyGroup>
   
   <Import Project="tools\msbuildtasks\MSBuild.Community.Tasks.Targets"/>
@@ -49,17 +52,11 @@
     <xunit Assemblies="@(TestFiles)" />
   </Target>
   
-  <Target Name="NuGet" DependsOnTargets="Test">    
-    <GetAssemblyIdentity AssemblyFiles="code\src\MetroChrome\bin\$(Configuration)\MetroChrome.dll">
-    <Output
-        TaskParameter="Assemblies"
-        ItemName="AssemblyInfo" />
-    </GetAssemblyIdentity>
-    
+  <Target Name="NuGet" DependsOnTargets="Test">
     <PropertyGroup>
       <NuGet>code\.nuget\NuGet.exe</NuGet>
       <OutputDirectory>-OutputDirectory "artifacts"</OutputDirectory>
-      <VersionArg>-Version %(AssemblyInfo.Version)</VersionArg>
+      <VersionArg>-Version $(CurrentVersion)-$(AssemblyConfig)$(BuildNumber)</VersionArg>
       <ConfigArg>-Prop Configuration=$(Configuration)</ConfigArg>
     </PropertyGroup>
 
@@ -67,7 +64,7 @@
       <NuSpec Include="artifacts\*.nuspec" />
     </ItemGroup>
 
-    <Exec Command='$(NuGet) pack "@(NuSpec)" $(OutputDirectory) $(VersionArg) $(ConfigArg) -Symbols' />
+    <Exec Command='$(NuGet) pack "@(NuSpec)" $(VersionArg) $(OutputDirectory) $(ConfigArg) -Symbols' />
   </Target>
   
 </Project>
