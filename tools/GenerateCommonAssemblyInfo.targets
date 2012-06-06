@@ -31,7 +31,9 @@
       AssemblyCopyright="Copyright © $(Company) $(Year)" 
       AssemblyTrademark="" 
       AssemblyConfiguration="$(AssemblyConfig)" 
-      AssemblyVersion="$(CurrentVersion).$(BuildNumber)" 
+      AssemblyVersion="$(CurrentVersion)"
+      AssemblyFileVersion="$(CurrentVersion).$(BuildNumber)"
+      AssemblyInformationalVersion="$(CurrentVersion)-$(AssemblyConfig).$(BuildNumber)"
     />
   </Target>
 
