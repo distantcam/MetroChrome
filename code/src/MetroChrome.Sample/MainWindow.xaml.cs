@@ -16,9 +16,9 @@ namespace MetroChrome.Sample
             var cb = (ComboBox)sender;
 
             if (cb.SelectedIndex == 0)
-                ThemeManager.ChangeTheme(ThemeTones.Light, Color.FromRgb(78, 166, 234));
+                ThemeManager.ChangeTheme(ThemeTones.Light, Colors.Red);
             else
-                ThemeManager.ChangeTheme(ThemeTones.Dark, Color.FromRgb(78, 166, 234));
+                ThemeManager.ChangeTheme(ThemeTones.Dark, Colors.Lime);
         }
 
         private void ResizeModeChanged(object sender, SelectionChangedEventArgs e)

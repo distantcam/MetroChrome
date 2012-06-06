@@ -14,6 +14,13 @@ namespace MetroChrome
 
     public static class ThemeManager
     {
+        private static string[] StyleFiles = new string[] { 
+            "Buttons", 
+            "ListBox", 
+            "Scroll", 
+            "Text" 
+        };
+
         private static ResourceDictionary GetThemeResourceDictionary(string theme)
         {
             if (String.IsNullOrEmpty(theme))
@@ -60,9 +67,8 @@ namespace MetroChrome
 
             mergedDictionaries.Add(CreateAccentDictionary(accentColor));
 
-            mergedDictionaries.Add(GetThemeResourceDictionary("Buttons"));
-            mergedDictionaries.Add(GetThemeResourceDictionary("Scroll"));
-            mergedDictionaries.Add(GetThemeResourceDictionary("Text"));
+            foreach (var s in StyleFiles)
+                mergedDictionaries.Add(GetThemeResourceDictionary(s));
         }
     }
 }
