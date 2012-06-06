@@ -14,6 +14,6 @@
   <files>
     <file src="..\code\src\MetroChrome\bin\$Configuration$\MetroChrome.dll" target="lib\net40" />
     <file src="..\code\src\MetroChrome\bin\$Configuration$\MetroChrome.pdb" target="lib\net40" />
-    <file src="..\code\src\MetroChrome\**\*.cs" target="src" exclude="..\code\src\MetroChrome\obj\**\*.*" />
+    <file src="..\code\src\MetroChrome\**\*.cs" target="src" />
   </files>
 </package>
