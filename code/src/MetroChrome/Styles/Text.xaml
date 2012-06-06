@@ -29,11 +29,13 @@
     </Style>
     
     <Style TargetType="{x:Type TextBox}">
-        <Setter Property="BorderBrush" Value="{StaticResource MetroChrome1Brush}" />
-        <Setter Property="Background" Value="{StaticResource MetroBackground2Brush}" />
         <Setter Property="Foreground" Value="{StaticResource MetroForeground1Brush}" />
+        <Setter Property="Background" Value="{StaticResource MetroBackground2Brush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource MetroChrome1Brush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Margin" Value="12,0" />
         <Setter Property="Padding" Value="3" />
         <Setter Property="Template">
@@ -46,7 +48,7 @@
                         Background="{TemplateBinding Background}" 
                         SnapsToDevicePixels="True"
                     >
-                        <ScrollViewer SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">

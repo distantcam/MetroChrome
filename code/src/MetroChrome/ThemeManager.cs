@@ -61,6 +61,7 @@ namespace MetroChrome
             mergedDictionaries.Add(CreateAccentDictionary(accentColor));
 
             mergedDictionaries.Add(GetThemeResourceDictionary("Buttons"));
+            mergedDictionaries.Add(GetThemeResourceDictionary("Scroll"));
             mergedDictionaries.Add(GetThemeResourceDictionary("Text"));
         }
     }

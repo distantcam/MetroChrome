@@ -64,7 +64,7 @@
       <NuSpec Include="artifacts\*.nuspec" />
     </ItemGroup>
 
-    <Exec Command='$(NuGet) pack "@(NuSpec)" $(VersionArg) $(OutputDirectory) $(ConfigArg) -Symbols' />
+    <Exec Command='$(NuGet) pack "@(NuSpec)" $(OutputDirectory) $(VersionArg) $(ConfigArg) -Symbols' />
   </Target>
   
 </Project>
