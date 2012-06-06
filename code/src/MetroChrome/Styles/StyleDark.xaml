@@ -9,7 +9,8 @@
     <Color x:Key="MetroBackground2Color" PresentationOptions:Freeze="True">#666666</Color>
     <Color x:Key="MetroBackground3Color" PresentationOptions:Freeze="True">#999999</Color>
 
-    <Color x:Key="MetroChromeColor" PresentationOptions:Freeze="True">#000000</Color>
+    <Color x:Key="MetroChrome1Color" PresentationOptions:Freeze="True">#000000</Color>
+    <Color x:Key="MetroChrome2Color" PresentationOptions:Freeze="True">#212121</Color>
 
     <Color x:Key="MetroForeground1Color" PresentationOptions:Freeze="True">#FFFFFF</Color>
     <Color x:Key="MetroForeground2Color" PresentationOptions:Freeze="True">#EEEEEE</Color>
@@ -21,7 +22,8 @@
     <SolidColorBrush x:Key="MetroBackground2Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroBackground2Color}" />
     <SolidColorBrush x:Key="MetroBackground3Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroBackground3Color}" />
 
-    <SolidColorBrush x:Key="MetroChromeBrush" PresentationOptions:Freeze="True" Color="{StaticResource MetroChromeColor}" />
+    <SolidColorBrush x:Key="MetroChrome1Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroChrome1Color}" />
+    <SolidColorBrush x:Key="MetroChrome2Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroChrome2Color}" />
 
     <SolidColorBrush x:Key="MetroForeground1Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroForeground1Color}" />
     <SolidColorBrush x:Key="MetroForeground2Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroForeground2Color}" />
@@ -96,7 +98,7 @@
     <Style x:Key="MetroDropShadow" TargetType="{x:Type ContentPresenter}">
         <Setter Property="UIElement.Effect">
             <Setter.Value>
-                <DropShadowEffect Color="{StaticResource MetroChromeColor}" Direction="270" BlurRadius="0.5" ShadowDepth="1" RenderingBias="Quality" />
+                <DropShadowEffect Color="{StaticResource MetroChrome1Color}" Direction="270" BlurRadius="0.5" ShadowDepth="1" RenderingBias="Quality" />
             </Setter.Value>
         </Setter>
     </Style>

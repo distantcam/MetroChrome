@@ -7,7 +7,7 @@
     Height="350" 
     Width="525"
 >
-    <UniformGrid Rows="2">
+    <UniformGrid Rows="3">
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ComboBox SelectionChanged="StyleSelectionChanged">
@@ -24,6 +24,8 @@
         </StackPanel>
 
         <Button Content="THIS IS BUTTON" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" />
 
     </UniformGrid>
 </metro:MetroWindow>

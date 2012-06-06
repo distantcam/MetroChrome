@@ -5,7 +5,7 @@
 >
     <Style TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource MetroBackgroundSpecial1Brush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource MetroChromeBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MetroChrome1Brush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Foreground" Value="{StaticResource MetroForeground1Brush}"/>
