@@ -27,36 +27,65 @@
             </ComboBox>
         </StackPanel>
 
-        <UniformGrid Grid.Row="1" Columns="3">
-        
-            <Button Content="THIS IS BUTTON" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        
-            <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Text="Foo" />
-        
-            <ListBox HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ListBoxItem Content="Item 1"/>
-                <ListBoxItem Content="Item 2"/>
-                <ListBoxItem Content="Item 3"/>
-                <ListBoxItem Content="Item 4"/>
-                <ListBoxItem Content="Item 5"/>
-                <ListBoxItem Content="Item 6"/>
-                <ListBoxItem Content="Item 7"/>
-                <ListBoxItem Content="Item 8"/>
-                <ListBoxItem Content="Item 9"/>
-                <ListBoxItem Content="Item 10"/>
-                <ListBoxItem Content="Item 11"/>
-                <ListBoxItem Content="Item 12"/>
-                <ListBoxItem Content="Item 13"/>
-                <ListBoxItem Content="Item 14"/>
-                <ListBoxItem Content="Item 15"/>
-                <ListBoxItem Content="Item 16"/>
-                <ListBoxItem Content="Item 17"/>
-                <ListBoxItem Content="Item 18"/>
-                <ListBoxItem Content="Item 19"/>
-                <ListBoxItem Content="Item 20"/>
-            </ListBox>
+        <TabControl Grid.Row="1">
+            <TabItem Header="Controls">
+                <UniformGrid  Columns="3">
+
+                    <Button Content="THIS IS BUTTON" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                    <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Text="Foo" />
+
+                    <ListBox HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <ListBoxItem Content="Item 1"/>
+                        <ListBoxItem Content="Item 2"/>
+                        <ListBoxItem Content="Item 3"/>
+                        <ListBoxItem Content="Item 4"/>
+                        <ListBoxItem Content="Item 5"/>
+                        <ListBoxItem Content="Item 6"/>
+                        <ListBoxItem Content="Item 7"/>
+                        <ListBoxItem Content="Item 8"/>
+                        <ListBoxItem Content="Item 9"/>
+                        <ListBoxItem Content="Item 10"/>
+                        <ListBoxItem Content="Item 11"/>
+                        <ListBoxItem Content="Item 12"/>
+                        <ListBoxItem Content="Item 13"/>
+                        <ListBoxItem Content="Item 14"/>
+                        <ListBoxItem Content="Item 15"/>
+                        <ListBoxItem Content="Item 16"/>
+                        <ListBoxItem Content="Item 17"/>
+                        <ListBoxItem Content="Item 18"/>
+                        <ListBoxItem Content="Item 19"/>
+                        <ListBoxItem Content="Item 20"/>
+                    </ListBox>
+
+                </UniformGrid>
+            </TabItem>
             
-        </UniformGrid>
+            <TabItem Header="Palette">
+                <UniformGrid Rows="3" Columns="3">
+                    <UniformGrid.Resources>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Margin" Value="5" />
+                        </Style>
+                    </UniformGrid.Resources>
+
+                    <TextBlock Background="{DynamicResource MetroBackground1Brush}" Text="MetroBackground1Brush" />
+                    <TextBlock Background="{DynamicResource MetroBackground2Brush}" Text="MetroBackground2Brush" />
+                    <TextBlock Background="{DynamicResource MetroBackground3Brush}" Text="MetroBackground3Brush" />
+
+                    <TextBlock Background="{DynamicResource MetroForeground1Brush}" Text="MetroForeground1Brush" />
+                    <TextBlock Background="{DynamicResource MetroForeground2Brush}" Text="MetroForeground2Brush" />
+                    <TextBlock Background="{DynamicResource MetroForeground3Brush}" Text="MetroForeground3Brush" />
+
+                    <TextBlock Background="{DynamicResource MetroChrome1Brush}" Text="MetroChrome1Brush" />
+                    <TextBlock Background="{DynamicResource MetroChrome2Brush}" Text="MetroChrome2Brush" />
+                    <TextBlock Background="{DynamicResource MetroAccentBrush}" Text="MetroAccentBrush" />
+
+                </UniformGrid>
+            </TabItem>
+        </TabControl>
+                
+        
 
     </Grid>
 </metro:MetroWindow>

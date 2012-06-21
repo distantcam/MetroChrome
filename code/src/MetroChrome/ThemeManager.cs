@@ -18,6 +18,7 @@ namespace MetroChrome
             "Buttons", 
             "ListBox", 
             "Scroll", 
+            "Tabs",
             "Text" 
         };
 
