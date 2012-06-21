@@ -1,9 +1,9 @@
 <Project DefaultTargets="NuGet" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration>Debug</Configuration>
-    <CurrentVersion>0.0.1</CurrentVersion>
+    <CurrentVersion>0.1.0</CurrentVersion>
     <BuildNumber></BuildNumber>
-    <AssemblyConfig>alpha</AssemblyConfig>
+    <AssemblyConfig></AssemblyConfig>
   </PropertyGroup>
   
   <Import Project="tools\msbuildtasks\MSBuild.Community.Tasks.Targets"/>
@@ -54,9 +54,13 @@
   
   <Target Name="NuGet" DependsOnTargets="Test">
     <PropertyGroup>
+      <AssemblyConfig Condition=" '$(AssemblyConfig)' != '' ">-$(AssemblyConfig)</AssemblyConfig>
+      <BuildNumber Condition=" '$(BuildNumber)' == '0' "></BuildNumber>
+      <BuildNumber Condition=" '$(AssemblyConfig)' == '' And $(BuildNumber) != '' ">.$(BuildNumber)</BuildNumber>
+
       <NuGet>code\.nuget\NuGet.exe</NuGet>
       <OutputDirectory>-OutputDirectory "artifacts"</OutputDirectory>
-      <VersionArg>-Version $(CurrentVersion)-$(AssemblyConfig)$(BuildNumber)</VersionArg>
+      <VersionArg>-Version $(CurrentVersion)$(AssemblyConfig)$(BuildNumber)</VersionArg>
       <ConfigArg>-Prop Configuration=$(Configuration)</ConfigArg>
     </PropertyGroup>
 
