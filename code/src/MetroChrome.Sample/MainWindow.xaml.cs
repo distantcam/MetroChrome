@@ -1,6 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Threading.Tasks;
+using System.Threading;
+using System;
 
 namespace MetroChrome.Sample
 {
@@ -40,6 +43,20 @@ namespace MetroChrome.Sample
                     this.ResizeMode = ResizeMode.CanResizeWithGrip;
                     break;
             }
+        }
+
+        private void PopupMiddle(object sender, RoutedEventArgs e)
+        {
+            ShowPopup(new SamplePopup());
+
+            Task.Factory.StartNew(() =>
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(5));
+            })
+            .ContinueWith(t => 
+            {
+                HidePopup();
+            }, CancellationToken.None, TaskContinuationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
         }
     }
 }

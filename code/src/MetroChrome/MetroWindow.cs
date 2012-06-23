@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
@@ -9,11 +11,30 @@ namespace MetroChrome
     [TemplatePart(Name = "PART_Min", Type = typeof(Button))]
     [TemplatePart(Name = "PART_Max", Type = typeof(Button))]
     [TemplatePart(Name = "PART_Clo", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_Popup", Type = typeof(ContentControl))]
+    [TemplateVisualState(Name = "Normal", GroupName = "Popups")]
+    [TemplateVisualState(Name = "Popup", GroupName = "Popups")]
     public class MetroWindow : Window
     {
         static MetroWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(MetroWindow), new FrameworkPropertyMetadata(typeof(MetroWindow)));
+        }
+
+        private ContentControl popupControl;
+
+        public void ShowPopup(object content)
+        {
+            popupControl.Content = content;
+
+            VisualStateManager.GoToState(this, "Popup", true);
+        }
+
+        public void HidePopup()
+        {
+            VisualStateManager.GoToState(this, "Normal", true);
+
+            //popupControl.Content = null;
         }
 
         public override void OnApplyTemplate()
@@ -31,6 +52,8 @@ namespace MetroChrome
             var maximizeButton = base.GetTemplateChild("PART_Max") as Button;
             if (maximizeButton != null)
                 maximizeButton.Click += MaximizeButton_Click;
+
+            popupControl = base.GetTemplateChild("PART_Popup") as ContentControl;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

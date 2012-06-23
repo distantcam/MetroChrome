@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MetroChrome"
     xmlns:behaviors="clr-namespace:MetroChrome.Behaviors"
+xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="http://schemas.microsoft.com/expression/2010/effects"
 >
     <Style TargetType="{x:Type local:MetroWindow}">
         <Setter Property="Background" Value="{DynamicResource MetroBackground1Brush}" />
@@ -18,39 +19,80 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:MetroWindow}">
                     <Border 
-                        BorderBrush="{TemplateBinding BorderBrush}" 
-                        BorderThickness="{TemplateBinding BorderThickness}" 
-                        Background="{TemplateBinding Background}"
+                		BorderBrush="{TemplateBinding BorderBrush}" 
+                		BorderThickness="{TemplateBinding BorderThickness}" 
+                		Background="{TemplateBinding Background}"
                     >
-                        <Grid>
-                            <AdornerDecorator>
-                                <ContentPresenter/>
-                            </AdornerDecorator>
-                            <ResizeGrip 
-                                x:Name="WindowResizeGrip" 
-                                HorizontalAlignment="Right" 
-                                IsTabStop="false" 
-                                Visibility="Collapsed" 
-                                VerticalAlignment="Bottom"
+                    	<VisualStateManager.VisualStateGroups>
+                    		<VisualStateGroup x:Name="Popups">
+                    			<VisualStateGroup.Transitions>
+                    				<VisualTransition GeneratedDuration="0:0:0.3">
+                    					<VisualTransition.GeneratedEasingFunction>
+                    						<BackEase EasingMode="EaseInOut"/>
+                    					</VisualTransition.GeneratedEasingFunction>
+                    				</VisualTransition>
+                    			</VisualStateGroup.Transitions>
+                    			<VisualState x:Name="Normal">
+                    				<Storyboard>
+                    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PART_Popup">
+                    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                    					</DoubleAnimationUsingKeyFrames>
+                    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="PART_Popup">
+                    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                    					</DoubleAnimationUsingKeyFrames>
+                    				</Storyboard>
+                    			</VisualState>
+                    			<VisualState x:Name="Popup">
+                    				<Storyboard>
+                    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="PART_Popup">
+                    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                    					</DoubleAnimationUsingKeyFrames>
+                    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="PART_Popup">
+                    						<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                    					</DoubleAnimationUsingKeyFrames>
+                    				</Storyboard>
+                    			</VisualState>
+                    		</VisualStateGroup>
+                    	</VisualStateManager.VisualStateGroups>
+                		<Grid>
+                			<AdornerDecorator>
+                				<ContentPresenter/>
+                			</AdornerDecorator>
+                			<ResizeGrip 
+                				x:Name="WindowResizeGrip" 
+                				HorizontalAlignment="Right" 
+                				IsTabStop="false" 
+                				Visibility="Collapsed" 
+                				VerticalAlignment="Bottom"
                             />
-                            <Grid
-                                x:Name="WindowButtonArea"
-                                HorizontalAlignment="Right"
-                                Visibility="Visible"
-                                VerticalAlignment="Top"
-                                Margin="0,12,12,0"
+                			<Grid
+                				x:Name="WindowButtonArea"
+                				HorizontalAlignment="Right"
+                				Visibility="Visible"
+                				VerticalAlignment="Top"
+                				Margin="0,12,12,0"
                             >
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="auto" />
-                                </Grid.ColumnDefinitions>
-                                <Button x:Name="PART_Min" Grid.Column="0" Style="{DynamicResource WindowButtonStyle}" Content="0" Margin="0,0,4,0" ToolTip="minimize"/>
-                                <Button x:Name="PART_Max" Grid.Column="1" Style="{DynamicResource WindowButtonStyle}" Content="1" Margin="0,0,4,0" ToolTip="maximize" />
-                                <Button x:Name="PART_Clo" Grid.Column="2" Style="{DynamicResource WindowButtonStyle}" Content="r" ToolTip="close" />
-                            </Grid>
-                        </Grid>
-                    </Border>
+                				<Grid.ColumnDefinitions>
+                					<ColumnDefinition Width="auto" />
+                					<ColumnDefinition Width="auto" />
+                					<ColumnDefinition Width="auto" />
+                				</Grid.ColumnDefinitions>
+                				<Button x:Name="PART_Min" Grid.Column="0" Style="{DynamicResource WindowButtonStyle}" Content="0" Margin="0,0,4,0" ToolTip="minimize"/>
+                				<Button x:Name="PART_Max" Grid.Column="1" Style="{DynamicResource WindowButtonStyle}" Content="1" Margin="0,0,4,0" ToolTip="maximize" />
+                				<Button x:Name="PART_Clo" Grid.Column="2" Style="{DynamicResource WindowButtonStyle}" Content="r" ToolTip="close" />
+                			</Grid>
+                			<ContentControl x:Name="PART_Popup" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                				<ContentControl.RenderTransform>
+                					<TransformGroup>
+                						<ScaleTransform ScaleY="0" ScaleX="0"/>
+                						<SkewTransform/>
+                						<RotateTransform/>
+                						<TranslateTransform/>
+                					</TransformGroup>
+                				</ContentControl.RenderTransform>
+                			</ContentControl>
+                		</Grid>
+                	</Border>
 
                     <ControlTemplate.Triggers>
                         <MultiTrigger>

@@ -64,24 +64,30 @@
             <TabItem Header="Palette">
                 <UniformGrid Rows="3" Columns="3">
                     <UniformGrid.Resources>
-                        <Style TargetType="{x:Type TextBlock}">
+                        <Style TargetType="{x:Type Label}">
                             <Setter Property="Margin" Value="5" />
                         </Style>
                     </UniformGrid.Resources>
 
-                    <TextBlock Background="{DynamicResource MetroBackground1Brush}" Text="MetroBackground1Brush" />
-                    <TextBlock Background="{DynamicResource MetroBackground2Brush}" Text="MetroBackground2Brush" />
-                    <TextBlock Background="{DynamicResource MetroBackground3Brush}" Text="MetroBackground3Brush" />
+                    <Label Background="{DynamicResource MetroBackground1Brush}" Content="MetroBackground1Brush" />
+                    <Label Background="{DynamicResource MetroBackground2Brush}" Content="MetroBackground2Brush" />
+                    <Label Background="{DynamicResource MetroBackground3Brush}" Content="MetroBackground3Brush" />
 
-                    <TextBlock Background="{DynamicResource MetroForeground1Brush}" Text="MetroForeground1Brush" />
-                    <TextBlock Background="{DynamicResource MetroForeground2Brush}" Text="MetroForeground2Brush" />
-                    <TextBlock Background="{DynamicResource MetroForeground3Brush}" Text="MetroForeground3Brush" />
+                    <Label Background="{DynamicResource MetroForeground1Brush}" Foreground="{DynamicResource MetroBackground1Brush}" Content="MetroForeground1Brush" />
+                    <Label Background="{DynamicResource MetroForeground2Brush}" Foreground="{DynamicResource MetroBackground1Brush}" Content="MetroForeground2Brush" />
+                    <Label Background="{DynamicResource MetroForeground3Brush}" Foreground="{DynamicResource MetroBackground1Brush}" Content="MetroForeground3Brush" />
 
-                    <TextBlock Background="{DynamicResource MetroChrome1Brush}" Text="MetroChrome1Brush" />
-                    <TextBlock Background="{DynamicResource MetroChrome2Brush}" Text="MetroChrome2Brush" />
-                    <TextBlock Background="{DynamicResource MetroAccentBrush}" Text="MetroAccentBrush" />
+                    <Label Background="{DynamicResource MetroChrome1Brush}" Content="MetroChrome1Brush" />
+                    <Label Background="{DynamicResource MetroChrome2Brush}" Content="MetroChrome2Brush" />
+                    <Label Background="{DynamicResource MetroAccentBrush}" Content="MetroAccentBrush" />
 
                 </UniformGrid>
+            </TabItem>
+            
+            <TabItem Header="Popups">
+                <StackPanel>
+                    <Button Content="Popup Middle" Click="PopupMiddle" />
+                </StackPanel>
             </TabItem>
         </TabControl>
                 
