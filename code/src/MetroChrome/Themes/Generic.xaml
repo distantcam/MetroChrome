@@ -95,8 +95,8 @@ xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="h
                             />
                             <ContentControl 
                                 x:Name="PART_Popup" 
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch" 
                                 Visibility="Hidden"
                             />
                         </Grid>
