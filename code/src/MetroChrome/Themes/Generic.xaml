@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MetroChrome"
     xmlns:behaviors="clr-namespace:MetroChrome.Behaviors"
-xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="http://schemas.microsoft.com/expression/2010/effects"
 >
     <Style TargetType="{x:Type local:MetroWindow}">
         <Setter Property="Background" Value="{DynamicResource MetroBackground1Brush}" />
@@ -23,18 +22,10 @@ xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="h
                         BorderThickness="{TemplateBinding BorderThickness}" 
                         Background="{TemplateBinding Background}"
                     >
-                        <VisualStateManager.CustomVisualStateManager>
-                            <ei:ExtendedVisualStateManager/>
-                        </VisualStateManager.CustomVisualStateManager>
                         <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="Popups" ei:ExtendedVisualStateManager.UseFluidLayout="True">
+                            <VisualStateGroup x:Name="Popups">
                                 <VisualStateGroup.Transitions>
-                                    <VisualTransition GeneratedDuration="0:0:0.1">
-                                        <ei:ExtendedVisualStateManager.TransitionEffect>
-                                            <ee:FadeTransitionEffect/>
-                                        </ei:ExtendedVisualStateManager.TransitionEffect>
-                                    </VisualTransition>
-                                    <VisualTransition From="Popup" GeneratedDuration="0"/>
+                                    <VisualTransition GeneratedDuration="0" />
                                 </VisualStateGroup.Transitions>
                                 <VisualState x:Name="Normal">
                                     <Storyboard>
@@ -44,6 +35,8 @@ xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="h
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PART_Popup">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
                                         </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd" From="0.75" To="0" Duration="0" />
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PART_Popup" From="1" To="0" Duration="0" />
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Popup">
@@ -54,6 +47,8 @@ xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="h
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Bd">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
                                         </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd" From="0" To="0.75" Duration="0:0:0.5" />
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PART_Popup" From="0" To="1" Duration="0:0:0.5" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -91,13 +86,14 @@ xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="h
                                 VerticalAlignment="Stretch" 
                                 Background="{DynamicResource MetroBackground1Brush}" 
                                 Visibility="Hidden" 
-                                Opacity="0.75"
+                                Opacity="0"
                             />
                             <ContentControl 
                                 x:Name="PART_Popup" 
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch" 
                                 Visibility="Hidden"
+                                Opacity="0"
                             />
                         </Grid>
                     </Border>
