@@ -15,6 +15,7 @@
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBox}">
@@ -23,7 +24,6 @@
                         BorderBrush="{TemplateBinding BorderBrush}" 
                         BorderThickness="{TemplateBinding BorderThickness}" 
                         Background="{TemplateBinding Background}" 
-                        Padding="1" 
                         SnapsToDevicePixels="true"
                     >
                         <ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
@@ -71,7 +71,6 @@
                         </Trigger>
                         <Trigger Property="IsSelected" Value="true">
                             <Setter Property="Background" TargetName="Bd" Value="{StaticResource MetroAccentBrush}"/>
-                            <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>-->
                         </Trigger>
                         
                         <MultiTrigger>
@@ -80,7 +79,6 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="false"/>
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" TargetName="Bd" Value="{StaticResource MetroForeground3Brush}"/>
-                            <!--<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>-->
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{StaticResource MetroForeground3Brush}"/>
