@@ -88,13 +88,15 @@
                                 Visibility="Hidden" 
                                 Opacity="0"
                             />
-                            <ContentControl 
-                                x:Name="PART_Popup" 
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch" 
-                                Visibility="Hidden"
-                                Opacity="0"
-                            />
+                            <AdornerDecorator>
+                                <ContentControl 
+                                    x:Name="PART_Popup" 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch" 
+                                    Visibility="Hidden"
+                                    Opacity="0"
+                                />
+                            </AdornerDecorator>
                         </Grid>
                     </Border>
 
