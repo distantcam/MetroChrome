@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
@@ -22,12 +20,15 @@ namespace MetroChrome
         }
 
         private ContentControl popupControl;
+        private bool popupIsOpen;
 
         public void ShowPopup(object content)
         {
             popupControl.Content = content;
 
             VisualStateManager.GoToState(this, "Popup", true);
+
+            popupIsOpen = true;
         }
 
         public void HidePopup()
@@ -35,6 +36,8 @@ namespace MetroChrome
             VisualStateManager.GoToState(this, "Normal", true);
 
             //popupControl.Content = null;
+
+            popupIsOpen = false;
         }
 
         public override void OnApplyTemplate()
@@ -75,7 +78,10 @@ namespace MetroChrome
 
         protected override void OnMouseDown(MouseButtonEventArgs e)
         {
-            if (e.RightButton != MouseButtonState.Pressed && e.MiddleButton != MouseButtonState.Pressed && e.LeftButton == MouseButtonState.Pressed)
+            if (!popupIsOpen &&
+                e.RightButton != MouseButtonState.Pressed &&
+                e.MiddleButton != MouseButtonState.Pressed &&
+                e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
 
             base.OnMouseDown(e);
