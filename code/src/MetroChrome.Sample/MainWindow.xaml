@@ -59,7 +59,10 @@
                     </ListBox>
                     
                     <StackPanel>
-                        <ProgressBar Value="{Binding ElementName=progressSlider, Path=Value}" IsIndeterminate="{Binding ElementName=isIndeterminate, Path=IsChecked}" Height="20" />
+                        <StackPanel Orientation="Horizontal">
+                            <ProgressBar Value="{Binding ElementName=progressSlider, Path=Value}" IsIndeterminate="{Binding ElementName=isIndeterminate, Path=IsChecked}" Height="20" Width="150" />
+                            <ProgressBar Value="{Binding ElementName=progressSlider, Path=Value}" IsIndeterminate="{Binding ElementName=isIndeterminate, Path=IsChecked}" Height="100" Width="20" Orientation="Vertical" />
+                        </StackPanel>
                         <Slider x:Name="progressSlider" Maximum="100" />
                         <CheckBox x:Name="isIndeterminate" Content="Is determinant" />
                     </StackPanel>
