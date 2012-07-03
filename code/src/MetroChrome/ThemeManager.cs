@@ -17,6 +17,7 @@ namespace MetroChrome
         private static string[] StyleFiles = new string[] { 
             "Buttons", 
             "ListBox", 
+            "ProgressBar",
             "Scroll", 
             "Tabs",
             "Text" 

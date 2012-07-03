@@ -29,7 +29,7 @@
 
         <TabControl Grid.Row="1">
             <TabItem Header="Controls">
-                <UniformGrid  Columns="3">
+                <UniformGrid Columns="3">
 
                     <Button Content="THIS IS BUTTON" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
@@ -57,6 +57,12 @@
                         <ListBoxItem Content="Item 19"/>
                         <ListBoxItem Content="Item 20"/>
                     </ListBox>
+                    
+                    <StackPanel>
+                        <ProgressBar Value="{Binding ElementName=progressSlider, Path=Value}" IsIndeterminate="{Binding ElementName=isIndeterminate, Path=IsChecked}" Height="20" />
+                        <Slider x:Name="progressSlider" Maximum="100" />
+                        <CheckBox x:Name="isIndeterminate" Content="Is determinant" />
+                    </StackPanel>
 
                 </UniformGrid>
             </TabItem>
