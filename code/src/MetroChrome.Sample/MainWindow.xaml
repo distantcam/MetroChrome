@@ -31,9 +31,15 @@
             <TabItem Header="Controls">
                 <UniformGrid Columns="3">
 
-                    <Button Content="THIS IS BUTTON" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Content="THIS IS BUTTON" IsEnabled="{Binding ElementName=buttonEnabled, Path=IsChecked}" />
+                        <CheckBox x:Name="buttonEnabled" Content="Enabled" IsChecked="True" />
+                    </StackPanel>
 
-                    <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Text="Foo" />
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBox Text="Foo" IsEnabled="{Binding ElementName=tbEnabled, Path=IsChecked}" />
+                        <CheckBox x:Name="tbEnabled" Content="Enabled" IsChecked="True" />
+                    </StackPanel>
 
                     <ListBox HorizontalAlignment="Center" VerticalAlignment="Center">
                         <ListBoxItem Content="Item 1"/>
@@ -57,14 +63,25 @@
                         <ListBoxItem Content="Item 19"/>
                         <ListBoxItem Content="Item 20"/>
                     </ListBox>
-                    
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <StackPanel VerticalAlignment="Center">
                             <ProgressBar Value="{Binding ElementName=progressSlider, Path=Value}" IsIndeterminate="{Binding ElementName=isIndeterminate, Path=IsChecked}" Height="20" Width="150" />
-                            <ProgressBar Value="{Binding ElementName=progressSlider, Path=Value}" IsIndeterminate="{Binding ElementName=isIndeterminate, Path=IsChecked}" Height="100" Width="20" Orientation="Vertical" />
+                            <Slider x:Name="progressSlider" Maximum="100" />
+                            <CheckBox x:Name="isIndeterminate" Content="Is determinant" />
                         </StackPanel>
-                        <Slider x:Name="progressSlider" Maximum="100" />
-                        <CheckBox x:Name="isIndeterminate" Content="Is determinant" />
+                        <ProgressBar Value="{Binding ElementName=progressSlider, Path=Value}" IsIndeterminate="{Binding ElementName=isIndeterminate, Path=IsChecked}" Height="100" Width="20" Orientation="Vertical" />
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <ComboBox IsEditable="{Binding ElementName=isEditable, Path=IsChecked}" IsEnabled="{Binding ElementName=cbEnabled, Path=IsChecked}">
+                            <ComboBoxItem>Item 1</ComboBoxItem>
+                            <ComboBoxItem>Item 2</ComboBoxItem>
+                            <ComboBoxItem>Item 3</ComboBoxItem>
+                        </ComboBox>
+
+                        <CheckBox x:Name="isEditable" Content="Is editable" />
+                        <CheckBox x:Name="cbEnabled" Content="Enabled" IsChecked="True" />
                     </StackPanel>
 
                 </UniformGrid>
