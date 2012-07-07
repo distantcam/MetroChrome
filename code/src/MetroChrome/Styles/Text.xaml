@@ -52,14 +52,14 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Property="Background" />
-                            <Setter Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" Property="Foreground" />
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource MetroBackground1Brush}" />
+                            <Setter Property="Foreground" Value="{StaticResource MetroForeground3Brush}" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Bd" Value="{StaticResource MetroChrome2Brush}" Property="BorderBrush" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource MetroChrome2Brush}" />
                         </Trigger>
                         <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                            <Setter TargetName="Bd" Value="{StaticResource MetroAccentBrush}" Property="BorderBrush" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource MetroAccentBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

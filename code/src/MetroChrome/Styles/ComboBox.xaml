@@ -200,14 +200,17 @@
                             <Setter Property="Canvas.Top" TargetName="OpaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                             <Setter Property="Canvas.Left" TargetName="OpaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
                         </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Setter Property="BorderBrush" Value="{StaticResource MetroAccentBrush}" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsEditable" Value="true">
-                <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
-                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource MetroChrome2Brush}"/>
+                <Setter Property="Background" Value="{StaticResource MetroBackground1Brush}"/>
                 <Setter Property="IsTabStop" Value="false"/>
                 <Setter Property="Padding" Value="3"/>
                 <Setter Property="Template" Value="{StaticResource ComboBoxEditableTemplate}"/>
