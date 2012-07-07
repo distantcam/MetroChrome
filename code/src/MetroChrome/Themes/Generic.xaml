@@ -49,6 +49,13 @@
                                         </ObjectAnimationUsingKeyFrames>
                                         <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Bd" From="0" To="0.75" Duration="0:0:0.2" />
                                         <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PART_Popup" From="0" To="1" Duration="0:0:0.2" />
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="PART_Popup">
+                                        	<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                                        		<EasingDoubleKeyFrame.EasingFunction>
+                                                    <CircleEase EasingMode="EaseOut" />
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                        	</EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -94,8 +101,13 @@
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch" 
                                     Visibility="Hidden"
-                                    Opacity="0"
-                                />
+                                    Opacity="0" 
+                                    RenderTransformOrigin="0.5,0.5"
+                                >
+                                	<ContentControl.RenderTransform>
+                                		<TranslateTransform X="-10"/>
+                                	</ContentControl.RenderTransform>
+                                </ContentControl>
                             </AdornerDecorator>
                         </Grid>
                     </Border>
