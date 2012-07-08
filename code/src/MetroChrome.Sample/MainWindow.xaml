@@ -37,8 +37,8 @@
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBox Text="Foo" IsEnabled="{Binding ElementName=tbEnabled, Path=IsChecked}" />
-                        <CheckBox x:Name="tbEnabled" Content="Enabled" IsChecked="True" />
+                        <TextBox Text="Foo" IsEnabled="{Binding ElementName=textboxEnabled, Path=IsChecked}" />
+                        <CheckBox x:Name="textboxEnabled" Content="Enabled" IsChecked="True" />
                     </StackPanel>
 
                     <ListBox HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -74,14 +74,19 @@
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <ComboBox IsEditable="{Binding ElementName=isEditable, Path=IsChecked}" IsEnabled="{Binding ElementName=cbEnabled, Path=IsChecked}">
+                        <ComboBox IsEditable="{Binding ElementName=isEditable, Path=IsChecked}" IsEnabled="{Binding ElementName=comboboxEnabled, Path=IsChecked}">
                             <ComboBoxItem>Item 1</ComboBoxItem>
                             <ComboBoxItem>Item 2</ComboBoxItem>
                             <ComboBoxItem>Item 3</ComboBoxItem>
                         </ComboBox>
 
                         <CheckBox x:Name="isEditable" Content="Is editable" />
-                        <CheckBox x:Name="cbEnabled" Content="Enabled" IsChecked="True" />
+                        <CheckBox x:Name="comboboxEnabled" Content="Enabled" IsChecked="True" />
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <CheckBox Content="The Checkbox" IsEnabled="{Binding ElementName=checkboxEnabled, Path=IsChecked}" />
+                        <CheckBox x:Name="checkboxEnabled" Content="Enabled" IsChecked="True" />
                     </StackPanel>
 
                 </UniformGrid>

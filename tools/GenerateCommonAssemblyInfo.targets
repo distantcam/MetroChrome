@@ -3,16 +3,16 @@
 
   <PropertyGroup>
 
-    <CurrentVersion Condition=" '$(CurrentVersion)' == '' ">0.0.1</CurrentVersion>
+    <CurrentVersion Condition=" '$(CurrentVersion)' == '' ">0.2.0</CurrentVersion>
     <Company Condition=" '$(Company)' == '' ">Cameron MacFarland</Company>
-
+    <BuildNumber></BuildNumber>
+    <AssemblyConfig></AssemblyConfig>
+    
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">$(MSBuildProjectDirectory)..\code\</SolutionDir>
     <MSBuildCommunityTasksPath>$(SolutionDir)..\tools\msbuildtasks\</MSBuildCommunityTasksPath>
 
-    <BuildNumber></BuildNumber>
     <SafeBuildNumber>$(BuildNumber)</SafeBuildNumber>
     <SafeBuildNumber Condition=" '$(SafeBuildNumber)' == '' ">0</SafeBuildNumber>
-    <AssemblyConfig>alpha</AssemblyConfig>
     
     <BuildDependsOn>
       GenerateCommonAssemblyInfo;
@@ -23,6 +23,14 @@
   <Import Project="msbuildtasks\MSBuild.Community.Tasks.Targets" />
 
   <Target Name="GenerateCommonAssemblyInfo">
+    <PropertyGroup>
+      <SafeBuildNumber>$(BuildNumber)</SafeBuildNumber>
+      <SafeBuildNumber Condition=" '$(SafeBuildNumber)' == '' ">0</SafeBuildNumber>
+      <AssemblyConfig Condition=" '$(AssemblyConfig)' != '' ">-$(AssemblyConfig)</AssemblyConfig>
+      <BuildNumber Condition=" '$(BuildNumber)' == '0' "></BuildNumber>
+      <BuildNumber Condition=" '$(AssemblyConfig)' == '' And $(BuildNumber) != '' ">.$(BuildNumber)</BuildNumber>
+    </PropertyGroup>
+    
     <Time>
       <Output TaskParameter="Year" PropertyName="Year" />
     </Time>
@@ -35,7 +43,7 @@
       AssemblyConfiguration="$(AssemblyConfig)" 
       AssemblyVersion="$(CurrentVersion)"
       AssemblyFileVersion="$(CurrentVersion).$(SafeBuildNumber)"
-      AssemblyInformationalVersion="$(CurrentVersion)-$(AssemblyConfig)$(BuildNumber)"
+      AssemblyInformationalVersion="$(CurrentVersion)$(AssemblyConfig)$(BuildNumber)"
     />
   </Target>
 
