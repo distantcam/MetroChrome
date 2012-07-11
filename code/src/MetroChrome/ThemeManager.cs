@@ -8,12 +8,50 @@ namespace MetroChrome
 {
     public enum ThemeTones
     {
+        None,
         Light,
         Dark
     }
 
     public static class ThemeManager
     {
+        public static readonly DependencyProperty ThemeToneProperty =
+            DependencyProperty.RegisterAttached("ThemeTone", typeof(ThemeTones), typeof(ThemeManager),
+            new UIPropertyMetadata(ThemeTones.None, OnThemeChanged));
+
+        public static ThemeTones GetThemeTone(DependencyObject obj)
+        {
+            return (ThemeTones)obj.GetValue(ThemeToneProperty);
+        }
+
+        public static void SetThemeTone(DependencyObject obj, ThemeTones value)
+        {
+            obj.SetValue(ThemeToneProperty, value);
+        }
+
+        public static readonly DependencyProperty AccentColorProperty =
+            DependencyProperty.RegisterAttached("AccentColor", typeof(Color), typeof(ThemeManager),
+            new UIPropertyMetadata(Colors.Red, OnThemeChanged));
+
+        public static Color GetAccentColor(DependencyObject obj)
+        {
+            return (Color)obj.GetValue(AccentColorProperty);
+        }
+
+        public static void SetAccentColor(DependencyObject obj, Color value)
+        {
+            obj.SetValue(AccentColorProperty, value);
+        }
+
+        private static void OnThemeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var element = d as FrameworkElement;
+            if (element == null)
+                return;
+
+            ChangeTheme(element.Resources.MergedDictionaries, GetThemeTone(d), GetAccentColor(d));
+        }
+
         private static string[] StyleFiles = new string[] { 
             "Buttons", 
             "CheckBox",
@@ -59,20 +97,35 @@ namespace MetroChrome
             foreach (var d in metroDictionaries)
                 mergedDictionaries.Remove(d);
 
+            if (tone == ThemeTones.None)
+                return;
+
+            ResourceDictionary toneDictionary = null;
+
             switch (tone)
             {
                 case ThemeTones.Light:
-                    mergedDictionaries.Add(GetThemeResourceDictionary("StyleLight"));
+                    toneDictionary = GetThemeResourceDictionary("StyleLight");
                     break;
                 case ThemeTones.Dark:
-                    mergedDictionaries.Add(GetThemeResourceDictionary("StyleDark"));
+                    toneDictionary = GetThemeResourceDictionary("StyleDark");
                     break;
             }
 
-            mergedDictionaries.Add(CreateAccentDictionary(accentColor));
+            var accentDictionary = CreateAccentDictionary(accentColor);
+
+            mergedDictionaries.Add(toneDictionary);
+
+            mergedDictionaries.Add(accentDictionary);
 
             foreach (var s in StyleFiles)
-                mergedDictionaries.Add(GetThemeResourceDictionary(s));
+            {
+                var dict = GetThemeResourceDictionary(s);
+                dict.MergedDictionaries.Add(toneDictionary);
+                dict.MergedDictionaries.Add(accentDictionary);
+
+                mergedDictionaries.Add(dict);
+            }
         }
     }
 }

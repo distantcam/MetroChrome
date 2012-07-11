@@ -3,6 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:MetroChrome"
 >
+    <ResourceDictionary.MergedDictionaries>
+        <local:MetroDictionary Source="/MetroChrome;component/Styles/StyleLight.xaml" />
+        <local:MetroDictionary Source="/MetroChrome;component/Styles/FauxAccent.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
     <Style TargetType="{x:Type ToolTip}">
         <Setter Property="Background" Value="#333333" />
         <Setter Property="Foreground" Value="#FFFFFF" />

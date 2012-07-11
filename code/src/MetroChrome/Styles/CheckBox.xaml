@@ -4,6 +4,10 @@
     xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" 
     xmlns:local="clr-namespace:MetroChrome"
 >
+    <ResourceDictionary.MergedDictionaries>
+        <local:MetroDictionary Source="/MetroChrome;component/Styles/StyleLight.xaml" />
+        <local:MetroDictionary Source="/MetroChrome;component/Styles/FauxAccent.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type CheckBox}">
         <Setter Property="Foreground" Value="{StaticResource MetroForeground1Brush}"/>
@@ -21,7 +25,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 Background="{TemplateBinding Background}"
                             >
-                                <Viewbox Width="10" Height="10">
+                                <Viewbox Width="12" Height="12">
                                     <Path x:Name="Check" Opacity="0" Fill="{TemplateBinding Foreground}">
                                         <Path.Data>
                                             <PathGeometry FillRule="Nonzero" Figures="M94.587,27.48 31.217,85.68 0.566,52.81 14.106,40.19 32.387,59.79 81.776,13.74z" />

@@ -1,9 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Threading.Tasks;
-using System.Threading;
-using System;
 
 namespace MetroChrome.Sample
 {
@@ -19,9 +19,15 @@ namespace MetroChrome.Sample
             var cb = (ComboBox)sender;
 
             if (cb.SelectedIndex == 0)
-                ThemeManager.ChangeTheme(ThemeTones.Light, Colors.Red);
+            {
+                ThemeManager.SetThemeTone(this, ThemeTones.Light);
+                ThemeManager.SetAccentColor(this, Colors.Red);
+            }
             else
-                ThemeManager.ChangeTheme(ThemeTones.Dark, Colors.Lime);
+            {
+                ThemeManager.SetThemeTone(this, ThemeTones.Dark);
+                ThemeManager.SetAccentColor(this, Colors.Lime);
+            }
         }
 
         private void ResizeModeChanged(object sender, SelectionChangedEventArgs e)
@@ -53,7 +59,7 @@ namespace MetroChrome.Sample
             {
                 Thread.Sleep(TimeSpan.FromSeconds(5));
             })
-            .ContinueWith(t => 
+            .ContinueWith(t =>
             {
                 HidePopup();
             }, CancellationToken.None, TaskContinuationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
