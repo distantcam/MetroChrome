@@ -9,7 +9,7 @@
         <local:MetroDictionary Source="/MetroChrome;component/Styles/FauxAccent.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type CheckBox}">
+    <Style x:Key="MetroCheckBox1Style" TargetType="{x:Type CheckBox}">
         <Setter Property="Foreground" Value="{StaticResource MetroForeground1Brush}"/>
         <Setter Property="Background" Value="{StaticResource MetroBackground1Brush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource MetroChrome1Brush}"/>
@@ -57,5 +57,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MetroCheckBox1Style}" />
 
 </local:MetroDictionary>

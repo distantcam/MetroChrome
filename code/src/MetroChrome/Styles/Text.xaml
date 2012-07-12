@@ -7,8 +7,8 @@
         <local:MetroDictionary Source="/MetroChrome;component/Styles/StyleLight.xaml" />
         <local:MetroDictionary Source="/MetroChrome;component/Styles/FauxAccent.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
-    <Style TargetType="{x:Type ToolTip}">
+
+    <Style x:Key="MetroToolTip1Style" TargetType="{x:Type ToolTip}">
         <Setter Property="Background" Value="#333333" />
         <Setter Property="Foreground" Value="#FFFFFF" />
         <Setter Property="FontSize" Value="10pt" />
@@ -32,8 +32,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <Style TargetType="{x:Type TextBox}">
+
+    <Style x:Key="MetroTextBox1Style" TargetType="{x:Type TextBox}">
         <Setter Property="Foreground" Value="{StaticResource MetroForeground1Brush}" />
         <Setter Property="Background" Value="{StaticResource MetroBackground2Brush}" />
         <Setter Property="BorderBrush" Value="{StaticResource MetroChrome1Brush}" />
@@ -64,11 +64,15 @@
                             <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource MetroChrome2Brush}" />
                         </Trigger>
                         <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource MetroAccentBrush}" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource MetroAccent1Brush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource MetroToolTip1Style}" />
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MetroTextBox1Style}" />
+
 </local:MetroDictionary>

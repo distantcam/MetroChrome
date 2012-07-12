@@ -110,7 +110,7 @@
 
                     <Label Background="{DynamicResource MetroChrome1Brush}" Content="MetroChrome1Brush" />
                     <Label Background="{DynamicResource MetroChrome2Brush}" Content="MetroChrome2Brush" />
-                    <Label Background="{DynamicResource MetroAccentBrush}" Content="MetroAccentBrush" />
+                    <Label Background="{DynamicResource MetroAccent1Brush}" Content="MetroAccent1Brush" />
 
                 </UniformGrid>
             </TabItem>

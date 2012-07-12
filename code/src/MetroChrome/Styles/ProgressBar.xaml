@@ -7,10 +7,10 @@
         <local:MetroDictionary Source="/MetroChrome;component/Styles/StyleLight.xaml" />
         <local:MetroDictionary Source="/MetroChrome;component/Styles/FauxAccent.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
-    <Style TargetType="{x:Type ProgressBar}">
+
+    <Style x:Key="MetroProgressBar1Style" TargetType="{x:Type ProgressBar}">
         <Setter Property="Background" Value="{StaticResource MetroBackground2Brush}" />
-        <Setter Property="Foreground" Value="{StaticResource MetroAccentBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource MetroAccent1Brush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ProgressBar}">
@@ -44,4 +44,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="{x:Type ProgressBar}" BasedOn="{StaticResource MetroProgressBar1Style}" />
+
 </local:MetroDictionary>

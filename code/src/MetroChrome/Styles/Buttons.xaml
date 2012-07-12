@@ -63,7 +63,7 @@
         </Setter>
     </Style>
     
-    <Style TargetType="{x:Type Button}">
+    <Style x:Key="MetroButton1Style" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{StaticResource MetroBackgroundSpecial1Brush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource MetroChrome1Brush}"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -115,10 +115,10 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsDefaulted" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource MetroAccentBrush}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource MetroAccent1Brush}" />
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource MetroAccentBrush}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource MetroAccent1Brush}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{StaticResource MetroForeground3Brush}"/>
@@ -128,4 +128,6 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MetroButton1Style}" />
 </local:MetroDictionary>

@@ -7,8 +7,8 @@
         <local:MetroDictionary Source="/MetroChrome;component/Styles/StyleLight.xaml" />
         <local:MetroDictionary Source="/MetroChrome;component/Styles/FauxAccent.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
-    <Style TargetType="{x:Type TabControl}">
+
+    <Style x:Key="MetroTabControl1Style" TargetType="{x:Type TabControl}">
         <Setter Property="Foreground" Value="{StaticResource MetroForeground1Brush}"/>
         <Setter Property="Padding" Value="4,4,4,4"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -89,7 +89,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style TargetType="{x:Type TabItem}">
+
+    <Style x:Key="MetroTabItem1Style" TargetType="{x:Type TabItem}">
         <Setter Property="Foreground" Value="{StaticResource MetroForeground1Brush}"/>
         <Setter Property="Padding" Value="6,6,6,6"/>
         <Setter Property="BorderBrush" Value="{StaticResource MetroBackground2Brush}"/>
@@ -119,7 +120,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="true">
                             <Setter Property="Panel.ZIndex" Value="1"/>
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource MetroAccentBrush}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource MetroAccent1Brush}"/>
                         </Trigger>
                         <!--<Trigger Property="TabStripPlacement" Value="Bottom">
                             <Setter Property="BorderThickness" TargetName="Bd" Value="1,0,1,1"/>
@@ -172,5 +173,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="{x:Type TabControl}" BasedOn="{StaticResource MetroTabControl1Style}" />
+    <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource MetroTabItem1Style}" />
 
 </local:MetroDictionary>

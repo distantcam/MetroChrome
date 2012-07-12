@@ -8,7 +8,7 @@
         <local:MetroDictionary Source="/MetroChrome;component/Styles/FauxAccent.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type ListBox}">
+    <Style x:Key="MetroListBox1Style" TargetType="{x:Type ListBox}">
         <Setter Property="Background" Value="{StaticResource MetroBackground1Brush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource MetroBackground3Brush}"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -47,7 +47,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type ListBoxItem}">
+    <Style x:Key="MetroListBoxItem1Style" TargetType="{x:Type ListBoxItem}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
@@ -74,7 +74,7 @@
                             <Setter Property="Background" TargetName="Bd" Value="{StaticResource MetroBackground3Brush}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="true">
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource MetroAccentBrush}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource MetroAccent1Brush}"/>
                         </Trigger>
                         
                         <MultiTrigger>
@@ -92,5 +92,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource MetroListBox1Style}" />
+    <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource MetroListBoxItem1Style}" />
 
 </local:MetroDictionary>

@@ -60,7 +60,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type ScrollBar}">
+    <Style x:Key="MetroScrollBar1Style" TargetType="{x:Type ScrollBar}">
         <Setter Property="Foreground" Value="{StaticResource MetroForeground3Brush}"/>
         <Setter Property="Background" Value="{StaticResource MetroBackground1Brush}"/>
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
@@ -124,5 +124,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource MetroScrollBar1Style}" />
 
 </local:MetroDictionary>

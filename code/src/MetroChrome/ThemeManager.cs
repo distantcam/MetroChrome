@@ -75,12 +75,12 @@ namespace MetroChrome
         private static ResourceDictionary CreateAccentDictionary(Color accentColor)
         {
             var dictionary = new MetroDictionary();
-            dictionary.Add("MetroAccentColor", accentColor);
+            dictionary.Add("MetroAccent1Color", accentColor);
 
             var accentBrush = new SolidColorBrush(accentColor);
             accentBrush.Freeze();
 
-            dictionary.Add("MetroAccentBrush", accentBrush);
+            dictionary.Add("MetroAccent1Brush", accentBrush);
 
             return dictionary;
         }

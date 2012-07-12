@@ -5,8 +5,8 @@
     xmlns:local="clr-namespace:MetroChrome"
 >
 
-    <Color x:Key="MetroAccentColor" PresentationOptions:Freeze="True">#FF0000</Color>
+    <Color x:Key="MetroAccent1Color" PresentationOptions:Freeze="True">#FF0000</Color>
 
-    <SolidColorBrush x:Key="MetroAccentBrush" PresentationOptions:Freeze="True" Color="{StaticResource MetroAccentColor}" />
+    <SolidColorBrush x:Key="MetroAccent1Brush" PresentationOptions:Freeze="True" Color="{StaticResource MetroAccent1Color}" />
 
 </local:MetroDictionary>

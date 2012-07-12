@@ -64,6 +64,7 @@
     <Compile Include="Behaviors\StylizedBehaviorCollection.cs" />
     <Compile Include="Behaviors\StylizedBehaviors.cs" />
     <Compile Include="MetroDictionary.cs" />
+    <Compile Include="MetroKeys.cs" />
     <Compile Include="MetroWindow.cs" />
     <Compile Include="Native\NativeConstants.cs" />
     <Compile Include="Native\ShowWindowCommands.cs" />
