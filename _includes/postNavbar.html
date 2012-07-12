@@ -9,7 +9,7 @@
               {% endunless %}
             {% endfor %}
           </a>
-          <a class="brand" href="/">MetroChrome</a>
+          <a class="brand" href="../">MetroChrome</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li><a href="#">Home</a></li>
@@ -20,7 +20,7 @@
 			      {% else %}
 			  <li>
 			      {% endif %}
-                <a href="{{ post.url }}">{{ post.title }}</a>
+                <a href="{{ post.url | remove_first:'/' }}">{{ post.title }}</a>
               </li>
                 {% endunless %}
               {% endfor %}
