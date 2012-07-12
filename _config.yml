@@ -1,2 +1,1 @@
-baseurl: /MetroChrome
-permalink: /:title/
+permalink: /:title.html
