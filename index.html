@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="MetroChrome : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>MetroChrome</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/distantcam/MetroChrome">View on GitHub</a>
+
+          <h1 id="project_title">MetroChrome</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/distantcam/MetroChrome/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/distantcam/MetroChrome/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>MetroChrome is my own personal take on a Metro UI. This project was started out of the frustration involved in getting other Metro themes up and running in an application. Given the simplicity and minimalism of Metro the setup of some of these packages was horribly complex. On top of that there were issues to do with changing the theme once set.</p>
+
+<p>MetroChrome uses a ThemeManager class to manage the theme, and allow you to change it dynamically during runtime. To use MetroChrome there are 3 steps.</p>
+
+<ol>
+<li>Add a reference to MetroChrome. MetroChrome is also in NuGet for easy access.</li>
+<li>Change any windows of your application to inherit from MetroChrome.MetroWindow instead of System.Windows.Window.</li>
+<li>Add a call to ThemeManager.ChangeTheme() somewhere in the startup of your application. This will set the tone (light or dark) as well as the accent colour for your application. You can call this method any time to change the application's theme.</li>
+</ol>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">MetroChrome maintained by <a href="https://github.com/distantcam">distantcam</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
