@@ -3,26 +3,29 @@
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
-			{% for post in site.posts %}
+            {% for post in site.posts %}
               {% unless post.draft %}
             <span class="icon-bar"></span>
               {% endunless %}
             {% endfor %}
           </a>
-          <a class="brand" href="#">MetroChrome</a>
+          <a class="brand" href=".">MetroChrome</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="#">Home</a></li>
+              <li><a href=".">Home</a></li>
               {% for post in site.posts %}
                 {% unless post.draft %}
-				  {% if post.url == page.url %}
+                  {% if post.url == page.url %}
               <li class="active">
-			      {% else %}
-			  <li>
-			      {% endif %}
+                  {% else %}
+              <li>
+                  {% endif %}
                 <a href="{{ post.url | remove_first:'/' }}">{{ post.title }}</a>
               </li>
                 {% endunless %}
+                {% if post.draft and post.url == page.url %}
+              <li class="active"><a href="{{ post.url | remove_first:'/' }}">{{ post.title }}</a></li>
+                {% endif %}
               {% endfor %}
             </ul>
           </div><!--/.nav-collapse -->

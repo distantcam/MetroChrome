@@ -3,16 +3,16 @@
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
-			{% for post in site.posts %}
+			      {% for post in site.posts %}
               {% unless post.draft %}
             <span class="icon-bar"></span>
               {% endunless %}
             {% endfor %}
           </a>
-          <a class="brand" href="#">MetroChrome</a>
+          <a class="brand" href=".">MetroChrome</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href=".">Home</a></li>
               {% for post in site.posts %}
                 {% unless post.draft %}
               <li>
