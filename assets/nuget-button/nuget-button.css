@@ -30,7 +30,7 @@
 
 .nuget-button-command
 {
-    color: #72eb18; /*Green*/
+    color: #ff0000;
     color: #e2e2e2;
     font-family: Consolas, "Andale Mono WT" , "Andale Mono" , "Lucida Console" , "Lucida Sans Typewriter" , "DejaVu Sans Mono" , "Bitstream Vera Sans Mono" , "Liberation Mono" , "Nimbus Mono L" , Monaco, "Courier New" , Courier, monospace;
     font-size: 1.5em;
@@ -52,7 +52,7 @@
 {
     outline: none;
     text-decoration: none !important;
-    color: #72eb18 !important;
+    color: #ff0000 !important;
     background-color: transparent !important;
     border: 0 !important;
 }
