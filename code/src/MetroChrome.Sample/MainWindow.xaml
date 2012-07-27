@@ -6,6 +6,8 @@
     Title="MainWindow" 
     Height="350" 
     Width="525"
+    MinWidth="200"
+    MinHeight="200"
 >
     <Grid>
         <Grid.RowDefinitions>
